@@ -16,4 +16,4 @@ class MenuItemAdmin(admin.ModelAdmin):
     fields = ['name', 'category', 'path', 'parent', ]
     list_display = ['__str__', 'category', 'path', 'parent', ]
 
-    # filter_horizontal = ['category__name', ]
+   
