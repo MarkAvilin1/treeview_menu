@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load tree_menu %}
+<head>
+    <meta charset="UTF-8">
+    <title>The Menu</title>
+</head>
+<body>
+
+    {{ block.super }}
+    <nav>{% draw_menu "main_menu" %}</nav>
+    <h2>{{ name }}</h2>
+
+
+</body>
+</html>
