@@ -12,17 +12,6 @@ register = template.Library()
 
 @register.inclusion_tag('menu.html', takes_context=True)
 def draw_menu(context: RequestContext, name: str = '', parent: int = 0):
-    """
-    Draw tree menu
-    :param context:
-    :type context: RequestContext
-    :param name:
-    :type name: str
-    :param parent:
-    :type parent: int
-    :return:
-    """
-
     if parent != 0 and 'menu' in context:
         menu = context['menu']
     else:
