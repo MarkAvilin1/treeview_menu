@@ -12,6 +12,7 @@ urlpatterns = [
 
 for app in settings.APPS:
     mod = app + '.urls'
+    print(mod)
     if find_spec(mod):
         urlpatterns.append(path(app + '/', include(mod)))
 

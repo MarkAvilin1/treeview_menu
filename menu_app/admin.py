@@ -1,19 +1,21 @@
-from django.contrib import 
+from django.contrib import admin
 
-from .models import MenuItem, MenuCategory
+# Register your models here.
+from .models import TreeMenu, TreeMenuCategory
 
 
-@admin.register(MenuCategory)
-class MenuCategoryAdmin(admin.ModelAdmin):
+@admin.register(TreeMenuCategory)
+class TreeMenuCategoryAdmin(admin.ModelAdmin):
 
     fields = ['name', 'verbose_name', ]
     list_display = ['__str__', ]
 
 
-@admin.register(MenuItem)
-class MenuItemAdmin(admin.ModelAdmin):
+@admin.register(TreeMenu)
+class TreeMenuAdmin(admin.ModelAdmin):
 
     fields = ['name', 'category', 'path', 'parent', ]
     list_display = ['__str__', 'category', 'path', 'parent', ]
 
-   
+    # filter_horizontal = ['category__name', ]
+

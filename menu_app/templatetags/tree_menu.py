@@ -5,13 +5,24 @@ from django.http import HttpRequest
 from django.template import RequestContext
 from django.urls import reverse, NoReverseMatch
 
-from ..models import MenuItem
+from ..models import TreeMenu
 
 register = template.Library()
 
 
-@register.inclusion_tag('app/menu.html', takes_context=True)
+@register.inclusion_tag('menu.html', takes_context=True)
 def draw_menu(context: RequestContext, name: str = '', parent: int = 0):
+    """
+    Draw tree menu
+    :param context:
+    :type context: RequestContext
+    :param name:
+    :type name: str
+    :param parent:
+    :type parent: int
+    :return:
+    """
+
     if parent != 0 and 'menu' in context:
         menu = context['menu']
     else:
@@ -23,7 +34,7 @@ def draw_menu(context: RequestContext, name: str = '', parent: int = 0):
             if 'request' in context and isinstance(context['request'], HttpRequest) \
             else ''
 
-        data = MenuItem.objects.select_related()\
+        data = TreeMenu.objects.select_related()\
             .filter(category__name=name)\
             .order_by('pk')
 

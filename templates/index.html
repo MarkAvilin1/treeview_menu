@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 {% load tree_menu %}
-<head>
-    <meta charset="UTF-8">
-    <title>The Menu</title>
-</head>
-<body>
 
+{% block content %}
     {{ block.super }}
     <nav>{% draw_menu "main_menu" %}</nav>
     <h2>{{ name }}</h2>
+{% endblock %}
 
-
-</body>
-</html>
